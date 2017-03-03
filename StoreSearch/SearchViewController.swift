@@ -25,8 +25,14 @@ class SearchViewController: UIViewController {
     
     var isLoading = false
     
+    var dataTask: URLSessionDataTask?
     
     
+    
+    
+    //-----------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------
+   
     
     func iTunesURL(searchText: String) -> URL {
         
@@ -55,6 +61,11 @@ class SearchViewController: UIViewController {
             return nil
         }
     }
+    
+    
+    
+    
+    
     
     
     func parse(dictionary: [String: Any]) -> [SearchResult] {
@@ -102,6 +113,10 @@ class SearchViewController: UIViewController {
         
         return searchResults
     }
+    
+    
+    
+    
     
     
     func parse(track dictionary: [String: Any]) -> SearchResult {
@@ -208,6 +223,8 @@ class SearchViewController: UIViewController {
     
     
     
+    
+    
     func showNetworkError() {
         
         let alert = UIAlertController(
@@ -222,6 +239,8 @@ class SearchViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    
     
     
     func kindForDisplay(_ kind: String) -> String {
@@ -245,7 +264,7 @@ class SearchViewController: UIViewController {
     
     
     
-    
+    //-----------------------------------------------------------------------------------------------
     
     
     
@@ -278,6 +297,10 @@ class SearchViewController: UIViewController {
 }
 
 
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+
+
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -286,6 +309,8 @@ extension SearchViewController: UISearchBarDelegate {
         
             searchBar.resignFirstResponder()
 
+            dataTask?.cancel()
+            
             isLoading = true
             tableView.reloadData()
             
@@ -295,12 +320,13 @@ extension SearchViewController: UISearchBarDelegate {
 
             let url = iTunesURL(searchText: searchBar.text!)
             let session = URLSession.shared
-            let dataTask = session.dataTask(with: url, completionHandler: {
+            
+            dataTask = session.dataTask(with: url, completionHandler: {
                 data, response, error in
 
-                if let error = error {
+                if let error = error as? NSError, error.code == -999{
                    
-                    print("Failure! \(error)")
+                    return
                 
                 } else if let httpResponse = response as? HTTPURLResponse,
                     httpResponse.statusCode == 200 {
@@ -333,7 +359,7 @@ extension SearchViewController: UISearchBarDelegate {
                 }
             })
 
-            dataTask.resume()
+            dataTask?.resume()
     
         }
     }
@@ -344,6 +370,9 @@ extension SearchViewController: UISearchBarDelegate {
         return .topAttached
     }
 }
+
+
+//-----------------------------------------------------------------------------------------------
 
 
 
@@ -412,6 +441,10 @@ extension SearchViewController: UITableViewDataSource {
         
     }
 }
+
+
+//-----------------------------------------------------------------------------------------------
+
 
 
 extension SearchViewController: UITableViewDelegate {
