@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5903854D1E6C1F5600F6CD6D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903854C1E6C1F5600F6CD6D /* DetailViewController.swift */; };
 		5903854F1E6C230C00F6CD6D /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903854E1E6C230C00F6CD6D /* DimmingPresentationController.swift */; };
+		5914F49E1E6DC8CD00D65079 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5914F49D1E6DC8CD00D65079 /* GradientView.swift */; };
+		5914F4A01E6DD21900D65079 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5914F49F1E6DD21900D65079 /* BounceAnimationController.swift */; };
+		5914F4A21E6DDA0600D65079 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5914F4A11E6DDA0600D65079 /* SlideOutAnimationController.swift */; };
 		59415DFE1E699204000DD17F /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59415DFD1E699204000DD17F /* LoadingCell.xib */; };
 		59415E001E69C6D5000DD17F /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59415DFF1E69C6D5000DD17F /* UIImageView+DownloadImage.swift */; };
 		59CA11A71E5DB14B00C79056 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59CA11A61E5DB14B00C79056 /* SearchResultCell.xib */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		5903854C1E6C1F5600F6CD6D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5903854E1E6C230C00F6CD6D /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
+		5914F49D1E6DC8CD00D65079 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		5914F49F1E6DD21900D65079 /* BounceAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
+		5914F4A11E6DDA0600D65079 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 		59415DFD1E699204000DD17F /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		59415DFF1E69C6D5000DD17F /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		59CA11A61E5DB14B00C79056 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
@@ -81,6 +87,9 @@
 				59415DFF1E69C6D5000DD17F /* UIImageView+DownloadImage.swift */,
 				5903854C1E6C1F5600F6CD6D /* DetailViewController.swift */,
 				5903854E1E6C230C00F6CD6D /* DimmingPresentationController.swift */,
+				5914F49D1E6DC8CD00D65079 /* GradientView.swift */,
+				5914F49F1E6DD21900D65079 /* BounceAnimationController.swift */,
+				5914F4A11E6DDA0600D65079 /* SlideOutAnimationController.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -164,9 +173,12 @@
 				5903854F1E6C230C00F6CD6D /* DimmingPresentationController.swift in Sources */,
 				59FB99CD1E5C9DA2006B998E /* SearchResult.swift in Sources */,
 				59CA11A91E5DB6E000C79056 /* SearchResultCell.swift in Sources */,
+				5914F4A01E6DD21900D65079 /* BounceAnimationController.swift in Sources */,
 				5903854D1E6C1F5600F6CD6D /* DetailViewController.swift in Sources */,
 				59FB99BB1E5C8B70006B998E /* AppDelegate.swift in Sources */,
+				5914F49E1E6DC8CD00D65079 /* GradientView.swift in Sources */,
 				59415E001E69C6D5000DD17F /* UIImageView+DownloadImage.swift in Sources */,
+				5914F4A21E6DDA0600D65079 /* SlideOutAnimationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
