@@ -348,12 +348,13 @@ class SearchViewController: UIViewController {
     func showLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
         
         guard landscapeViewController == nil else { return }
-        // 2
+
         landscapeViewController = storyboard!.instantiateViewController(
             withIdentifier: "LandscapeViewController") as? LandscapeViewController
         
         if let controller = landscapeViewController {
             
+            controller.searchResults = searchResults
             controller.view.frame = view.bounds
             controller.view.alpha = 0
             
