@@ -15,6 +15,7 @@ class LandscapeViewController: UIViewController {
     
     var searchResults = [SearchResult]()
     private var firstTime = true
+    private var downloadTasks = [URLSessionDownloadTask]()
     
     
     @IBAction func pageChanged(_ sender: UIPageControl) {
@@ -107,16 +108,18 @@ class LandscapeViewController: UIViewController {
         for (index, searchResult) in searchResults.enumerated() {
         
             // 1
-            let button = UIButton(type: .system)
+            let button = UIButton(type: .custom)
             
-            button.backgroundColor = UIColor.white
-            button.setTitle("\(index)", for: .normal)
+            button.setBackgroundImage(UIImage(named: "LandscapeButton"), for: .normal)
+        
             // 2
             button.frame = CGRect(
                 // 3
                 x: x + paddingHorz,
                 y: marginY + CGFloat(row) * itemHeight + paddingVert,
                 width: buttonWidth, height: buttonHeight)
+            
+            downloadImage(for: searchResult, andPlaceOn: button)
             
             scrollView.addSubview(button)
             // 4
@@ -147,7 +150,32 @@ class LandscapeViewController: UIViewController {
     }
     
     
-    
+    private func downloadImage(for searchResult: SearchResult,
+                               andPlaceOn button: UIButton) {
+        
+        if let url = URL(string: searchResult.artworkSmallURL) {
+            
+            let downloadTask = URLSession.shared.downloadTask(with: url) {
+                
+                [weak button] url, response, error in
+                
+                if error == nil, let url = url, let data = try? Data(contentsOf: url),
+                    let image = UIImage(data: data) {
+                    
+                    DispatchQueue.main.async {
+                        
+                        if let button = button {
+                            button.setImage(image, for: .normal)
+                        }
+                    }
+                }
+            }
+            
+            downloadTasks.append(downloadTask)
+            downloadTask.resume()
+        }
+        
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -155,6 +183,15 @@ class LandscapeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    deinit {
+     
+        print("deinit \(self)")
+        
+        for task in downloadTasks {
+            task.cancel()
+        }
+    }
 
     /*
     // MARK: - Navigation
