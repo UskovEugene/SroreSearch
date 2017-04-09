@@ -6,6 +6,7 @@
 //  Copyright © 2017 Eugene Uskov. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class Search {
@@ -56,6 +57,7 @@ class Search {
         if !text.isEmpty {
             
             dataTask?.cancel()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             
             state = .loading
             
@@ -92,6 +94,8 @@ class Search {
                 }
                 
                 DispatchQueue.main.async {
+                   
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     completion(success)
                 }
             })
