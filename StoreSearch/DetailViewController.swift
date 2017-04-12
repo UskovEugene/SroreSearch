@@ -72,20 +72,11 @@ class DetailViewController: UIViewController {
         popupView.layer.cornerRadius = 10
         
         
-//        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(close))
-//        
-//        gestureRecognizer.cancelsTouchesInView = false
-//        gestureRecognizer.delegate = self
-//        
-//        view.addGestureRecognizer(gestureRecognizer)
-        
-        
+
         if searchResult != nil {
         
             updateUI()
         }
-        
-//        view.backgroundColor = UIColor.clear
         
         if isPopUp {
         
